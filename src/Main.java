@@ -8,9 +8,11 @@ public class Main {
 
         String inputFile = "D:\\!JavaRushTest\\Input.txt";
         String outputFile = "D:\\!JavaRushTest\\Output.txt";
-        int keyCaesar = 3;
+        String doubleConversion = "D:\\!JavaRushTest\\Output.txt";
+        int keyCaesar = 1;
 
         InOut.fileReadWrite(inputFile,outputFile,1,keyCaesar);
+
 
 
 

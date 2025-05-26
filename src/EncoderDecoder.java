@@ -5,13 +5,30 @@ public class EncoderDecoder {
                     'ж', 'з', 'и', 'й', 'к', 'л', 'м',
                     'н', 'о', 'п', 'р', 'с', 'т', 'у',
                     'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ',
-                    'ы', 'ь', 'э', 'ю', 'я'};
+                    'ы', 'ь', 'э', 'ю', 'я', '.', ',',
+                    '«', '»', '"', '\'', ':', '!', '?', ' '};
+
     public static char encryption(char inChar, int key) {
-        return inChar;
+        char outChar = inChar;
+        int lengthArray = russianAlphabetArray.length;
+        for (int i = 0; i < lengthArray; i++) {
+            if (inChar == russianAlphabetArray[i]) {
+                int newIndex = (i + key) % lengthArray;
+                if (newIndex < 0) {
+                    newIndex += lengthArray;
+                }
+                outChar = russianAlphabetArray[newIndex];
+                break;
+            }
+        }
+        return outChar;
     }
-
-
+    public static char decryption(char inChar, int key) {
+        return encryption(inChar, -key);
+    }
 }
+
+
 
 
 //    public static char[] encryption(char[] inDataArray, int key) {
