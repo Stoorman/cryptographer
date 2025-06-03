@@ -31,10 +31,11 @@ public class EncodeCaesar implements Function {
         } catch (IOException e) {
             return new Result(ERROR, new ApplicationException("Шифрование не удалось из-за ошибки", e));
         }
+
         return new Result(OK);
     }
 
-// TODO перписать, чтобы 2 раза не было одного и того же кода
+// TODO переписать, чтобы 2 раза не было одного и того же кода
     private char encryption(char inChar, int key) {
         char outChar = inChar;
         int lengthArray = RUSSIAN_SMALL_LETTERS.length;
@@ -61,5 +62,6 @@ public class EncodeCaesar implements Function {
         }
 
         return outChar;
+
     }
 }

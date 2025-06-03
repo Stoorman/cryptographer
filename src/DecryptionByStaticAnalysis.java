@@ -14,8 +14,8 @@ public class DecryptionByStaticAnalysis {
             while (reader.ready()) {
                 int real = reader.read(buffer);
                 for (int i = 0; i < real; i++) {
-                    boolean seach = frequencyMap.containsKey(buffer[i]);
-                    if (seach == true) {
+                    boolean search = frequencyMap.containsKey(buffer[i]);
+                    if (search == true) {
                         int frequency = frequencyMap.get(buffer[i]);
                         frequency++;
                         frequencyMap.put(buffer[i], frequency);

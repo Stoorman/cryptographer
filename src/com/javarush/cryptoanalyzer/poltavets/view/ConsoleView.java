@@ -2,6 +2,8 @@ package com.javarush.cryptoanalyzer.poltavets.view;
 
 import com.javarush.cryptoanalyzer.poltavets.entity.Result;
 
+import javax.imageio.IIOException;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -41,7 +43,7 @@ public class ConsoleView implements View {
         }
         // TODO сделать пути по умолчанию
         // TODO Написать комментарии
-
+        scanner.close();
         return parameters;
     }
 
@@ -152,12 +154,11 @@ public class ConsoleView implements View {
                 exitApp();
             }
 
-            boolean validate = validatePathOut(path);
+            boolean validate = validatePathOut(path, scanner);
 
             if (validate == true) {
                 return path;
             }
-            System.out.println(UNKNOWN_PATH_OPEN_FOLDER);
         }
     }
 
@@ -167,16 +168,75 @@ public class ConsoleView implements View {
     }
 
 
-    private boolean validatePathOut(String path) {
-        Path p = Paths.get(path);
-        return Files.exists(p) && Files.isRegularFile(p);
-    }
+    private boolean validatePathOut(String path, Scanner scanner) {
+        try {
+            Path p = Paths.get(path);
+            Path f = p.getParent();
 
+            if (Files.exists(p) && Files.isRegularFile(p)) {
+                return true;
+            }
+
+            if (!Files.exists(p)) {
+                while (true) {
+                    System.out.println(UNKNOWN_PATH_FOLDER_AND_CREATE);
+
+                    if (scanner.hasNextInt()) {
+                        int number = scanner.nextInt();
+                        scanner.nextLine();
+
+                        if (number == 1) {
+                            if (f != null && !Files.exists(f)) {
+                                Files.createDirectories(f);
+                            }
+                            Files.createFile(p);
+                            System.out.println(FOLDER_AND_FILE_CREATE);
+                            return true;
+                        } else if (number == 2) {
+                            return false;
+                        } else {
+                            System.out.print(NO_THIS_OPTION_Y_N);
+                        }
+                    } else {
+                        System.out.print(NOT_AN_INTEGER);
+                        scanner.next();
+                    }
+                }
+            }
+            if (!Files.isRegularFile(p)) {
+                while (true) {
+                    System.out.println(UNKNOWN_PATH_FILE_AND_CREATE);
+
+                    if (scanner.hasNextInt()) {
+                        int number = scanner.nextInt();
+                        scanner.nextLine();
+
+                        if (number == 1) {
+                            Files.createFile(p);
+                            System.out.println(FILE_CREATE);
+                            return true;
+                        } else if (number == 2) {
+                            return false;
+                        } else {
+                            System.out.print(NO_THIS_OPTION_Y_N);
+                        }
+                    } else {
+                        System.out.print(NOT_AN_INTEGER);
+                        scanner.next();
+                    }
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
 
     private void exitApp() {
         System.out.println(EXIT_APP);
         System.exit(0);
     }
-
 
 }

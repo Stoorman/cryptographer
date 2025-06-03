@@ -7,7 +7,7 @@ public class ConsoleViewConstants {
                                             "момент приложение работает с заглавными и строчными символами кириллицы. \n" +
                                             "Так же приложение поддерживает взлом зашифрованного файла при помощи \n" +
                                             "атаки полным перебором(Bruteforce) и методом статистического анализа, но \n" +
-                                            "следует понимать, что расшифровка такими методами не гарантирована. Удачи!\n";
+                                            "следует понимать, что расшифровка такими методами не гарантирована. Удачи!\n\n";
 
     public static final String ACTION_SELECTION = "Что делаем:\n" +
                                                     "1 - Шифрование файла;\n" +
@@ -20,11 +20,13 @@ public class ConsoleViewConstants {
 
     public static final String NO_THIS_OPTION = "\nНет такого варианта. Введи число от 0 до 4.\n\n";
 
+    public static final String NO_THIS_OPTION_Y_N = "\nНет такого варианта. Введи 1 или 2.\n\n";
+
     public static final String KEY_SELECTION = "Введи ключ шифрования.Ключ не должен быть кратен %d.\n" +
                                                 "Для выхода из программы введи 0\n";
 
     public static final String KEY_FORM = "Ключ больше длины алфавита. Применена операция вычисления остатка по модулю.\n" +
-                                            "Новый ключ  %d. При дальнейшей работе можно использовать любой из двух ключей.\n";
+                                            "Новый ключ  %d. При дальнейшей работе можно использовать любой из двух ключей.\n\n";
 
     public static final String KEY_IS_USELESS = "Ключ кратен %d. Шифрование с таким ключом бессмысленно.\n";
 
@@ -33,28 +35,43 @@ public class ConsoleViewConstants {
                                                         "Для выхода из программы введи exit\n";
 
     public static final String REQUEST_PATH_ENCRYPTED_FILE = "Введи путь к файлу, который нужно расшифровать.\n" +
-                                                                "Пример пути для Windows: D:\\!JavaRush\\OpenFile.txt\n" +
+                                                                "Пример пути для Windows: D:\\!JavaRush\\EncodeFile.txt\n" +
                                                                 "Для выхода из программы введи exit\n";
 
     public static final String REQUEST_PATH_EXAMPLE_FILE =   "Введи путь к файлу, c образцом текса. Образец текста должен быть от того же\n" +
                                                              "автора. Чем длиннее пример, тем лучше будет результат." +
-                                                             "Пример пути для Windows: D:\\!JavaRush\\OpenFile.txt\n" +
+                                                             "Пример пути для Windows: D:\\!JavaRush\\SampleFile.txt\n" +
                                                               "Для выхода из программы введи exit\n";
 
-    public static final String REQUEST_PATH_ENCRYPTED_FOLDER = "Введи путь к папке, куда запишется зашифрованная информация.\n" +
-                                                             "Пример пути для Windows: D:\\!JavaRush\\\n" +
+    public static final String REQUEST_PATH_ENCRYPTED_FOLDER = "Введи путь к файлу, куда запишется зашифрованная информация.\n" +
+                                                             "Пример пути для Windows: D:\\!JavaRush\\EncodeFile.txt\n" +
                                                              "Для выхода из программы введи exit\n";
-    public static final String REQUEST_PATH_DECRYPTED_FOLDER = "Введи путь к папке, куда запишется зашифрованная информация.\n" +
-                                                               "Пример пути для Windows: D:\\!JavaRush\\\n" +
+    public static final String REQUEST_PATH_DECRYPTED_FOLDER = "Введи путь к папке, куда запишется расшифрованная информация.\n" +
+                                                               "Пример пути для Windows: D:\\!JavaRush\\DecodeFile.txt\n" +
                                                                 "Для выхода из программы введи exit\n";
 
 
 
     public static final String UNKNOWN_PATH_OPEN_FILE = "\nТакого файла не существует.\n";
 
-    public static final String UNKNOWN_PATH_OPEN_FOLDER = "\nТакой папки не существует.\n";
+    public static final String UNKNOWN_PATH_FOLDER_AND_CREATE = "\nТакой папки и файла не существует.Создать такую папку и файл?:\n" +
+                                                                "1 - да;\n" +
+                                                                "2 - нет.\n";
+
+    public static final String UNKNOWN_PATH_FILE_AND_CREATE = "\nТакого файла не существует.Создать файл?:\n" +
+                                                               "1 - да;\n" +
+                                                               "2 - нет.\n";
+
+    public static final String FOLDER_AND_FILE_CREATE = "\nПапка и файл успешно созданы\n";
+
+    public static final String FILE_CREATE = "\nФайл успешно создан\n";
+
+
+
 
     public static final String EXIT_PATH = "exit";
+
+
 
     public static final String EXIT_APP = "Работа приложения завершена досрочно и Бендер не доволен\n" +
             "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠁\n" +

@@ -27,6 +27,7 @@ public class Application {
         return switch (mode) {
             case "1" -> FunctionCode.valueOf(ENCODE).getFunction();
             case "2" -> FunctionCode.valueOf(DECODE).getFunction();
+            case "3" -> FunctionCode.valueOf(BRUTEFORCE).getFunction();
             default -> FunctionCode.valueOf(UNSUPPORTED_FUNCTION).getFunction();
 
         };
