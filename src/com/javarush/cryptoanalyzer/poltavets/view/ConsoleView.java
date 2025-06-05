@@ -24,7 +24,7 @@ public class ConsoleView implements View {
            parameters[1] - key
            parameters[2] - путь к входному файлу
            parameters[3] - путь к выходной папке
-           parameters[5] - путь к примеру текста для статистического анализа
+           parameters[4] - путь к примеру текста для статистического анализа
          */
 
         System.out.print(GREETINGS);
@@ -43,7 +43,7 @@ public class ConsoleView implements View {
         }
         // TODO сделать пути по умолчанию
         // TODO Написать комментарии
-        scanner.close();
+
         return parameters;
     }
 

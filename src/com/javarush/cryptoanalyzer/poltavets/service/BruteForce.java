@@ -41,7 +41,6 @@ public class BruteForce implements Function {
 
                         }
                     }
-                    System.out.println(i);
                     System.out.println(counterKeywords);
                     if (counterKeywords > counterKeywordsMax) {
                         key = i;
